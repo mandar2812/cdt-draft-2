@@ -177,14 +177,14 @@ From the intuitions of Granger causality, we use the concept of causality as pre
 \widetilde{p}_{i}^{(m)} = \frac{exp \left(- \beta (y_{i}^{(m)} - \hat{y}_{i}^{(m)})^{2} \right)}{\sum_{i}{exp \left(- \beta (y_{i}^{(m)} - \hat{y}_{i}^{(m)})^{2} \right)}} 
 \end{equation}
 
-The hyper-parameter $\beta$ serves to determine how sharp the target probability distribution is around its peak. The predictions $\hat{y}^{(m)}_{i}$, made by the model are penalized for their divergence from the \emph{target probability} via the \emph{Hellinger distance} metric (equation \ref{eq:hellinger}).
+The hyper-parameter $\beta$ serves to determine how sharp the target probability distribution is around its peak. The predictions $\hat{y}^{(m)}_{i}$, made by the model are penalized for their divergence from the \emph{target probability} via the \emph{Kullback-Leibler divergence} (KL) divergence (equation \ref{eq:hellinger}).
 
 \begin{align}\label{eq:prior}
 & \mathcal{J}(y^{(1:M)}, \hat{y}^{(1:M)}, \hat{p}^{(1:M)}) = \sum_{m = 1}^{M}{\frac{1}{M} \mathcal{H}(\hat{p}^{(m)}, \widetilde{p}^{(m)})} \\
-& \mathcal{H}(p, q) = \sqrt{\sum_{i}{(\sqrt{p_i} -  \sqrt{q_i})^2}} \label{eq:hellinger}
+& \mathcal{H}(p, q) = \sum_{i}{p_{i}log \left (\frac{p_i}{q_i} \right)} \label{eq:hellinger}
 \end{align}
 
-There are a number of candidate choices for defining the model's divergence from the \emph{target probability}, i.e.  \emph{Kullback-Leibler divergence} (\cite{kullback1951}), \emph{Jensen-Shannon divergence} (\cite{jensen-shannon}), \emph{Total Variational distance} (\cite{Villani2009}), \emph{Hellinger distance} (\cite{hellinger}) and \emph{Bhattacharya distance} (\cite{bhattacharyya}) to name a few. We found that for the applications considered in this work, \emph{Hellinger distance} worked best. In principle it is possible to use any one of the mentioned divergence/distance measures as a penalty, since the work outlined in this paper is general in nature.
+There are a number of candidate choices for defining the model's divergence from the \emph{target probability}, i.e.  \emph{Kullback-Leibler divergence} (\cite{kullback1951}), \emph{Jensen-Shannon divergence} (\cite{jensen-shannon}), \emph{Total Variational distance} (\cite{Villani2009}), \emph{Hellinger distance} (\cite{hellinger}) and \emph{Bhattacharya distance} (\cite{bhattacharyya}) to name a few. We found that for the applications considered in this work, \emph{Kullback-Leibler divergence} worked best. In principle it is possible to use any one of the mentioned divergence/distance measures as a penalty, since the work outlined in this paper is general in nature.
 
 \subsection{Hyper-parameters}
 
