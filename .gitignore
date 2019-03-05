@@ -8,3 +8,7 @@
 *.bbl
 *.gz
 *.pdf
+.metals
+*.fls
+*.fdb*
+*.Rproj
